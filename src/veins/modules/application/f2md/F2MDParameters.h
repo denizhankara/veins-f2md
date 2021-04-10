@@ -63,6 +63,19 @@ public:
     double LOCAL_ATTACKER_PROB = 0.05;
 
     attackTypes::Attacks LOCAL_ATTACK_TYPE = attackTypes::RandomSpeed;
+
+
+    // Fake BSM set
+    attackTypes::Attacks MixLocalAttacksList[9] = {attackTypes::ConstPos,
+        attackTypes::RandomPos,
+        attackTypes::ConstPosOffset, attackTypes::ConstSpeed,
+        attackTypes::RandomPosOffset,
+        attackTypes::ConstSpeedOffset, attackTypes::RandomSpeedOffset,
+        attackTypes::EventualStop,attackTypes::RandomSpeed};
+
+
+    // Full list
+    /*
     attackTypes::Attacks MixLocalAttacksList[19] = {attackTypes::ConstPos,
         attackTypes::Disruptive, attackTypes::RandomPos,
         attackTypes::StaleMessages, attackTypes::DoSRandomSybil,
@@ -73,6 +86,7 @@ public:
         attackTypes::EventualStop, attackTypes::DoSDisruptiveSybil,
         attackTypes::DataReplay, attackTypes::DoSRandom,
         attackTypes::GridSybil, attackTypes::RandomSpeed};
+    */
 
     //ConstPos, ConstPosOffset, RandomPos, RandomPosOffset,
     //ConstSpeed, ConstSpeedOffset, RandomSpeed, RandomSpeedOffset,

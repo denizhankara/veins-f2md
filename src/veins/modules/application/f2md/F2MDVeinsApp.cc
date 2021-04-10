@@ -403,7 +403,7 @@ void JosephVeinsApp::initialize(int stage)
                 << "=+#=+#=+#=+#=+#=+#=+#=+#+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+# "
                 << "\n";
             std::cout
-                << "=+#=+#=+#=+#=+#=+#=+#=+# NEW ATTACKER =+#=+#=+#=+#=+#=+#=+#=+# "
+                << "=+#=+#=+#=+#=+#=+#=+#=+# NEW ATTACKER ITS=+#=+#=+#=+#=+#=+#=+#=+# "
                 << myPseudonym << " : "
                 << attackTypes::AttackNames[myAttackType] << "\n";
             std::cout
