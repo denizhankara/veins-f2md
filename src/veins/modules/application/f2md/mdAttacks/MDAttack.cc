@@ -16,6 +16,7 @@ MDAttack::MDAttack() {
 
 void MDAttack::init(attackTypes::Attacks myAttackType, double MaxRandomPosX,double MaxRandomPosY,F2MDParameters *params) {
 
+
     this->params = params;
     StopInitiated = false;
     DoSInitiated = false;
@@ -146,7 +147,7 @@ void MDAttack::setPcPolicy(PCPolicy* pcPolicy) {
     this->pcPolicy = pcPolicy;
 }
 
-BasicSafetyMessage MDAttack::launchAttack(attackTypes::Attacks myAttackType,
+BasicSafetyMessage MDAttack::launchAttack(double simTime,attackTypes::Attacks myAttackType,
         LinkControl* LinkC) {
 
     targetNode = 0;
@@ -398,6 +399,14 @@ BasicSafetyMessage MDAttack::launchAttack(attackTypes::Attacks myAttackType,
                 StopBsm.setSenderWidth(*myWidth);
                 StopBsm.setSenderLength(*myLength);
                 StopInitiated = true;
+
+                // record the start time of eventual stop attacks
+                
+                // StopBsm.set
+                std::cout
+                << StopBsm.getSenderRealId() << "-" << simTime
+                << "\n";
+                
             }
 
             attackBsm.setSenderPseudonym(0);

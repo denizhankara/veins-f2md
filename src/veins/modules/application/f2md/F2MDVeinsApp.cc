@@ -398,7 +398,10 @@ void JosephVeinsApp::initialize(int stage)
             else {
                 myAttackType = params.LOCAL_ATTACK_TYPE;
             }
+            
+            // temporarily disable the prompt to get stop times
 
+            /*
             std::cout
                 << "=+#=+#=+#=+#=+#=+#=+#=+#+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+# "
                 << "\n";
@@ -409,6 +412,9 @@ void JosephVeinsApp::initialize(int stage)
             std::cout
                 << "=+#=+#=+#=+#=+#=+#=+#=+#+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+# "
                 << "\n";
+
+            */
+
 
             mdAttack = MDAttack();
 
@@ -615,7 +621,7 @@ void JosephVeinsApp::treatAttackFlags()
 {
 
     if (myMdType == mbTypes::LocalAttacker) {
-        attackBsm = mdAttack.launchAttack(myAttackType, &linkControl);
+        attackBsm = mdAttack.launchAttack(simTime().dbl(),myAttackType, &linkControl);
 
         if (mdAttack.getTargetNode() >= 0) {
             addTargetNode(mdAttack.getTargetNode());

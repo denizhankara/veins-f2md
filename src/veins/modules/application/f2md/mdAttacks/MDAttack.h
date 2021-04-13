@@ -98,9 +98,10 @@ protected:
 
     double localSybilDistanceX = 0;
     double localSybilDistanceY = 0;
-
+    
     F2MDParameters *params;
 
+    double simTime;
 
 public:
 
@@ -108,7 +109,7 @@ public:
 
     void init(attackTypes::Attacks myAttackType, double MaxRandomPosX,double MaxRandomPosY,F2MDParameters *params);
 
-    BasicSafetyMessage launchAttack(attackTypes::Attacks myAttackType, LinkControl* LinkC);
+    BasicSafetyMessage launchAttack(double simTime,attackTypes::Attacks myAttackType, LinkControl* LinkC);
 
     void setBeaconInterval(simtime_t* beaconInterval);
     void setCurHeading(veins::Coord* curHeading);
