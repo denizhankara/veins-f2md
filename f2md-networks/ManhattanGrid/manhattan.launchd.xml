@@ -36,5 +36,9 @@
     <copy file="net.net.xml" />
     <copy file="randomflows.rou.xml" />
     <copy file="flows2.rou.xml" />
+    <copy file="flows.rou.xml" />
+    <copy file="continousroutes.rou.xml" />
+    <copy file="routes.rou.xml" />
+
     <copy file="manhattan.sumo.cfg" type="config" />
 </launch>
