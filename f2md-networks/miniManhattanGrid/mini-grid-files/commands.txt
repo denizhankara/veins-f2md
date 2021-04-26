@@ -1,0 +1,8 @@
+
+Generate net :
+netgenerate --grid --grid.x-number=4 --grid.y-number=3 --grid.x-length=500 --grid.y-length=500 -o net2.net.xml
+
+
+Generate routes:
+
+
