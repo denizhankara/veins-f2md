@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-
-<AnalogueModel type="SimplePathlossModel">
-            <parameter name="alpha" type="double" value="2.0"/>
-            <parameter name="carrierFrequency" type="double" value="5.890e+9"/>
-        </AnalogueModel>
-        
-
--->
-
 
 <root>
     <AnalogueModels>
@@ -27,7 +17,7 @@
             <parameter name="carrierFrequency" type="double" value="5.890e+9"/>
         </AnalogueModel>
 
-        
+
 
         <AnalogueModel type="SimpleObstacleShadowing">
             <parameter name="carrierFrequency" type="double" value="5.890e+9"/>
