@@ -13,5 +13,8 @@
 <shapes>
     
     <poly id="1" type="building" color="1.00,0.00,0.00" fill="1" layer="4" shape="10,990 990,990 990,510 10,510 10,990"/>
+    <poly id="1" type="building" color="1.00,0.00,0.00" fill="1" layer="4" shape="10,990 990,990 990,510 10,510 10,990"/>
+    <poly id="1" type="building" color="1.00,0.00,0.00" fill="1" layer="4" shape="10,990 990,990 990,510 10,510 10,990"/>
+    <poly id="1" type="building" color="1.00,0.00,0.00" fill="1" layer="4" shape="10,990 990,990 990,510 10,510 10,990"/>
     
 </shapes>

@@ -23,6 +23,7 @@
 
 using namespace std;
 using namespace boost;
+// modify the legacy checks file to get records
 
 static double print_count = 0;
 
