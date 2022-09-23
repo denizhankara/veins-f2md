@@ -398,6 +398,10 @@
     <edge id="A1B1" from="A1" to="B1" priority="-1">
         <lane id="A1B1_0" index="0" speed="13.89" length="985.60" shape="7.20,498.40 992.80,498.40"/>
     </edge>
+    <edge id="A1B1-1" from="A1" to="B1" priority="-1">
+        <lane id="A1B1_1" index="0" speed="13.89" length="985.60" shape="7.20,498.40 992.80,498.40"/>
+    </edge>
+    
     <edge id="A2A1" from="A2" to="A1" priority="-1">
         <lane id="A2A1_0" index="0" speed="13.89" length="489.60" shape="-1.60,996.80 -1.60,507.20"/>
     </edge>
@@ -425,6 +429,11 @@
     <edge id="B1C1" from="B1" to="C1" priority="-1">
         <lane id="B1C1_0" index="0" speed="13.89" length="985.60" shape="1007.20,498.40 1992.80,498.40"/>
     </edge>
+
+    <edge id="B1C1-1" from="B1" to="C1" priority="-1">
+        <lane id="B1C1_1" index="0" speed="13.89" length="985.60" shape="1007.20,498.40 1992.80,498.40"/>
+    </edge>
+
     <edge id="B2A2" from="B2" to="A2" priority="-1">
         <lane id="B2A2_0" index="0" speed="13.89" length="989.60" shape="992.80,1001.60 3.20,1001.60"/>
     </edge>
@@ -455,6 +464,10 @@
     <edge id="C1D1" from="C1" to="D1" priority="-1">
         <lane id="C1D1_0" index="0" speed="13.89" length="985.60" shape="2007.20,498.40 2992.80,498.40"/>
     </edge>
+    <edge id="C1D1-1" from="C1" to="D1" priority="-1">
+        <lane id="C1D1_1" index="0" speed="13.89" length="985.60" shape="2007.20,498.40 2992.80,498.40"/>
+    </edge>
+    
     <edge id="C2B2" from="C2" to="B2" priority="-1">
         <lane id="C2B2_0" index="0" speed="13.89" length="985.60" shape="1992.80,1001.60 1007.20,1001.60"/>
     </edge>
@@ -632,6 +645,7 @@
     <junction id=":D1_10_0" type="internal" x="3000.00" y="498.40" incLanes=":D1_4_0 D2D1_0" intLanes=":D1_0_0 :D1_1_0 :D1_7_0 :D1_8_0"/>
     <junction id=":D1_11_0" type="internal" x="3000.00" y="494.40" incLanes=":D1_5_0 C1D1_0 D2D1_0" intLanes=":D1_1_0 :D1_6_0"/>
 
+
     <connection from="A0A1" to="A1B1" fromLane="0" toLane="0" via=":A1_6_0" dir="r" state="M"/>
     <connection from="A0A1" to="A1A2" fromLane="0" toLane="0" via=":A1_7_0" dir="s" state="M"/>
     <connection from="A0A1" to="A1A0" fromLane="0" toLane="0" via=":A1_8_0" dir="t" state="m"/>
@@ -642,6 +656,7 @@
     <connection from="A1A2" to="A2B2" fromLane="0" toLane="0" via=":A2_1_0" dir="r" state="M"/>
     <connection from="A1B1" to="B1B0" fromLane="0" toLane="0" via=":B1_12_0" dir="r" state="m"/>
     <connection from="A1B1" to="B1C1" fromLane="0" toLane="0" via=":B1_13_0" dir="s" state="m"/>
+    
     <connection from="A1B1" to="B1B2" fromLane="0" toLane="0" via=":B1_14_0" dir="l" state="m"/>
     <connection from="A1B1" to="B1A1" fromLane="0" toLane="0" via=":B1_15_0" dir="t" state="m"/>
     <connection from="A2A1" to="A1A0" fromLane="0" toLane="0" via=":A1_0_0" dir="s" state="M"/>

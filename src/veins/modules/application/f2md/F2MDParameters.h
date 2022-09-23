@@ -53,6 +53,7 @@ public:
 
     double START_SAVE = 0; //60 seconds
     double START_ATTACK = 10; //60 seconds
+    double STOP_ATTACK = 10; //60 seconds
 
     reportTypes::Report REPORT_VERSION = reportTypes::ProtocolReport;
 

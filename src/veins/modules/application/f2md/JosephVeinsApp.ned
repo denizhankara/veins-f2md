@@ -40,6 +40,7 @@ simple JosephVeinsApp extends F2MDBaseApplLayer
 
     double START_SAVE = default(0); 
     double START_ATTACK = default(10);
+    double STOP_ATTACK = default(10);
 
     int REPORT_VERSION = default(2);
 

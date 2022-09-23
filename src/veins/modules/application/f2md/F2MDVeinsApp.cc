@@ -38,9 +38,11 @@ void JosephVeinsApp::initialize(int stage)
 
         params.START_SAVE = par("START_SAVE");
         params.START_ATTACK = par("START_ATTACK");
+        params.STOP_ATTACK = par("STOP_ATTACK");
 
         params.START_SAVE = par("START_SAVE");
         params.START_ATTACK = par("START_ATTACK");
+        params.STOP_ATTACK = par("STOP_ATTACK");
 
         params.REPORT_VERSION = reportTypes::intReport[par("REPORT_VERSION").intValue()];
 
@@ -244,12 +246,26 @@ void JosephVeinsApp::initialize(int stage)
 
         pcPolicy = PCPolicy(mobility->getPositionAt(simTime()), &params);
 
+        // DK add for debugging- check myId and induce misbehavior immediately
+        if (myId == 10 && false) { // set to true to induce misbehavior
+            std::cout << "Setting as attack" << std::endl;
+            myMdType = mbTypes::LocalAttacker;
+        std::cout << "myId: " << myId << endl;
+        std::cout << "myPseudonym: " << myPseudonym << endl;
+        std::cout << "pseudoNum: " << pseudoNum << endl;
+        std::cout << "myMdType: " << myMdType << endl;
+        }
+        ///
+        
+        
         pcPolicy.setMbType(myMdType);
         pcPolicy.setMdAuthority(&mdStats);
         pcPolicy.setCurPosition(&curPosition);
         pcPolicy.setMyId(&myId);
         pcPolicy.setMyPseudonym(&myPseudonym);
         pcPolicy.setPseudoNum(&pseudoNum);
+
+        
 
         myPseudonym = pcPolicy.getNextPseudonym();
 
@@ -401,7 +417,7 @@ void JosephVeinsApp::initialize(int stage)
             
             // temporarily disable the prompt to get stop times
 
-            /*
+            
             std::cout
                 << "=+#=+#=+#=+#=+#=+#=+#=+#+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+# "
                 << "\n";
@@ -413,7 +429,7 @@ void JosephVeinsApp::initialize(int stage)
                 << "=+#=+#=+#=+#=+#=+#=+#=+#+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+#=+# "
                 << "\n";
 
-            */
+            
 
 
             mdAttack = MDAttack();
@@ -540,6 +556,7 @@ mbTypes::Mbs JosephVeinsApp::induceMisbehavior(double localAttacker,
     double globalAttacker)
 {
 
+
     if (simTime().dbl() < params.START_ATTACK) {
         return mbTypes::Genuine;
     }
@@ -569,7 +586,7 @@ mbTypes::Mbs JosephVeinsApp::induceMisbehavior(double localAttacker,
 
 void JosephVeinsApp::onBSM(BasicSafetyMessage* bsm)
 {
-
+    
     if (params.writeVeReMi) {
         VeReMi.serializeBeacon(bsm);
     }
@@ -619,8 +636,39 @@ void JosephVeinsApp::onBSM(BasicSafetyMessage* bsm)
 }
 void JosephVeinsApp::treatAttackFlags()
 {
+    
+    // DK Debug
+    //Attack end
+    if (myId == 10 && simTime().dbl() >= params.STOP_ATTACK) {
+        myMdType = mbTypes::Genuine;
+        // traciVehicle-> remove(10);
+        //traciVehicle->vehicle().remove(myId);
+        // traci->vehicle().remove(myId);
+        traciVehicle->setColor(TraCIColor(0, 0, 0, 0));
+        
+    }
+    //attack start
+    else if (myId == 10 && simTime().dbl() >= params.START_ATTACK) {
+        //if par("LOCAL_ATTACK_TYPE").intValue()==0{
+        //}
+        if (params.LOCAL_ATTACK_TYPE!=0){
+        myMdType = mbTypes::LocalAttacker;
+        }
+    }
+    // accusation check
+    
+    else if (myId == 10 && simTime().dbl() >= params.START_ATTACK-2) {
+        if (params.LOCAL_ATTACK_TYPE!=0){
+        
+        addAccusedNode(myPseudonym);
+        // std::cout << "SET accusation color for the vehicle " <<simTime().dbl() << std::endl;
+        }
+    }
+    
+    // DK debug end
 
     if (myMdType == mbTypes::LocalAttacker) {
+        // std::cout << "Starting attack!!!!!!!!!" << myId <<"  " << simTime().dbl() << std::endl;
         attackBsm = mdAttack.launchAttack(simTime().dbl(),myAttackType, &linkControl);
 
         if (mdAttack.getTargetNode() >= 0) {
@@ -636,7 +684,8 @@ void JosephVeinsApp::treatAttackFlags()
     }
     else {
         if (isTargetNode(myPseudonym)) {
-            traciVehicle->setColor(TraCIColor(255, 255, 0, 255));
+            // traciVehicle->setColor(TraCIColor(255, 255, 0, 255));
+            traciVehicle->setColor(TraCIColor(0, 255, 0, 255));
         }
         else {
             traciVehicle->setColor(TraCIColor(0, 255, 0, 255));
